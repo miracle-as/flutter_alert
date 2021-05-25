@@ -8,25 +8,25 @@ import 'package:flutter_alert/flutter_alert.dart';
 /// Shows an alert dialog with the official flutter material package.
 void showMaterialAlert({
   /// A build context. Required.
-  @required BuildContext context,
+  required BuildContext context,
 
   /// The title of the modal dialog.
-  String title,
+  String? title,
 
   /// The body (or content) of the modal dialog.
   /// The text was automatically rendered in a ScrollView.
-  String body,
+  String? body,
 
   /// A List of actions. For each action there was shown one button.
   /// If there was no action defined, a default action with a
   /// (localized) "OK" button was shown.
-  List<AlertAction> actions,
+  List<AlertAction>? actions,
 
   /// Allow you to define if the alert dialog is closable when
   /// the users taps beside the alert dialog.
   /// Default is only true when cancelable is set to true
   /// and the platform is not iOS.
-  bool barrierDismissible,
+  bool? barrierDismissible,
 
   /// Automatically adds a (localized) "Cancel" button to the list
   /// of buttons. Currently its not possible to handle the cancel
@@ -62,7 +62,7 @@ void showMaterialAlert({
     builder: (BuildContext context) => AlertDialog(
           title: _buildTitle(title),
           content: _buildBody(body),
-          actions: actions
+          actions: actions!
               .map((AlertAction action) =>
                   _buildMaterialActionButton(context, action))
               .toList(),
@@ -72,14 +72,14 @@ void showMaterialAlert({
   );
 }
 
-Widget _buildTitle(String title) {
+Widget? _buildTitle(String? title) {
   if (title == null || title.isEmpty) {
     return null;
   }
   return Text(title);
 }
 
-Widget _buildBody(String body) {
+Widget? _buildBody(String? body) {
   if (body == null || body.isEmpty) {
     return null;
   }

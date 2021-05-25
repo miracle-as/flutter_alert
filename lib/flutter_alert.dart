@@ -34,7 +34,7 @@ class AlertAction {
   const AlertAction({
     /// The title of the alert button.
     /// Required.
-    @required this.text,
+    required this.text,
 
     /// Defines if the button is the default button.
     /// Set this value to true to render the button with a bold text weight.
@@ -47,7 +47,7 @@ class AlertAction {
     this.isDestructiveAction = false,
 
     /// Callback handler when this button was pressed.
-    @required this.onPressed,
+    required this.onPressed,
 
     /// Defines if the button will automatically close the dialog by
     /// trigger a Navigation pop action or not.
@@ -59,25 +59,25 @@ class AlertAction {
 /// Shows an alert dialog.
 void showAlert({
   /// A build context. Required.
-  @required BuildContext context,
+  required BuildContext context,
 
   /// The title of the modal dialog.
-  String title,
+  String? title,
 
   /// The body (or content) of the modal dialog.
   /// The text was automatically rendered in a ScrollView.
-  String body,
+  String? body,
 
   /// A List of actions. For each action there was shown one button.
   /// If there was no action defined, a default action with a
   /// (localized) "OK" button was shown.
-  List<AlertAction> actions,
+  List<AlertAction>? actions,
 
   /// Allow you to define if the alert dialog is closable when
   /// the users taps beside the alert dialog.
   /// Default is only true when cancelable is set to true
   /// and the platform is not iOS.
-  bool barrierDismissible,
+  bool? barrierDismissible,
 
   /// Automatically adds a (localized) "Cancel" button to the list
   /// of buttons. Currently its not possible to handle the cancel
